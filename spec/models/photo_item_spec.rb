@@ -31,7 +31,7 @@ RSpec.describe PhotoItem, type: :model do
 					"published": "2015-07-14T16:05:43Z",
 					"author": "nobody@flickr.com (erinmay311)",
 					"author_id": "134073905@N04",
-					"tags": ""
+					"tags": "mytag1 mytag2"
 				   }
 				}
 
@@ -43,9 +43,30 @@ RSpec.describe PhotoItem, type: :model do
 			it "returns the title" do
 		      	expect(photo_item.title).to match(/Tagged!/)
 		    end
-		   	#it "returns the link" do
-		     # 	expect(photo_stream.title).to match("https://www.flickr.com/photos/")
-		    #end
+		    it "returns the link" do
+		      	expect(photo_item.link).to match("https://www.flickr.com/photos/134073905@N04/19069651544/")
+		    end
+		    it "returns the media" do
+		      	#expect(photo_item.media).to match('{"m":"https://farm1.staticflickr.com/303/19069651544_530c002fcb_m.jpg"}')
+		    end
+		    it "returns the date_taken" do
+		      	expect(photo_item.date_taken).to match(/2015-07-14T09:05:43-08:00/)
+		    end
+		    it "returns the description" do
+		      	expect(photo_item.description).to match('<p><a href=\"https://www.flickr.com/people/134073905@N04/\">erinmay311<\/a> posted a photo:<\/p> <p><a href=\"https://www.flickr.com/photos/134073905@N04/19069651544/\" title=\"Tagged!\"><img src=\"https://farm1.staticflickr.com/303/19069651544_530c002fcb_m.jpg\" width=\"240\" height=\"159\" alt=\"Tagged!\" /><\/a><\/p> <p>via Facebook <a href=\"http://ift.tt/1GjGTST\" rel=\"nofollow\">ift.tt/1GjGTST<\/a><\/p>')
+		    end
+		    it "returns the published" do
+		      	expect(photo_item.published).to match(/2015-07-14T16:05:43Z/)
+		    end
+		    it "returns the author" do
+		      	expect(photo_item.author).to match("nobody@flickr.com (erinmay311)")
+		    end
+		    it "returns the author_id" do
+		      	expect(photo_item.author_id).to match(/134073905@N04/)
+		    end
+		    it "returns the tags" do
+		      	expect(photo_item.tags).to match(/mytag1 mytag2/)
+		    end
 		end
 
 
