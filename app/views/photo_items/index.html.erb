@@ -6,7 +6,7 @@
 		<div class="item">
 			
 			<%=image_tag(item.media["m"]) %>
-			<%=link_to item.title, item.link%>
+			<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_id %></div>
 		</div>
 	<% end %>
 	</div>

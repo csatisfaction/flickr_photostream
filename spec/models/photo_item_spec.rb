@@ -20,6 +20,35 @@ RSpec.describe PhotoItem, type: :model do
 			it "title" do
 				expect(photo_item).to respond_to(:title)
 			end
+			it "link" do
+				expect(photo_item).to respond_to(:link)
+			end
+			it "media" do
+				expect(photo_item).to respond_to(:media)
+			end
+			it "date_taken" do
+				expect(photo_item).to respond_to(:date_taken)
+			end
+			it "description" do
+				expect(photo_item).to respond_to(:description)
+			end
+			it "published" do
+				expect(photo_item).to respond_to(:published)
+			end
+			it "author" do
+				expect(photo_item).to respond_to(:author)
+			end
+			it "author_id" do
+				expect(photo_item).to respond_to(:author_id)
+			end
+			it "short_author" do
+				expect(photo_item).to respond_to(:short_author)
+			end
+			it "tags" do
+				expect(photo_item).to respond_to(:tags)
+			end
+
+
 		end
 		context "responds with the correct data" do
 			item = %q{{
@@ -60,6 +89,9 @@ RSpec.describe PhotoItem, type: :model do
 		    end
 		    it "returns the author" do
 		      	expect(photo_item.author).to match("nobody@flickr.com (erinmay311)")
+		    end
+		   	it "returns the short_author" do
+		      	expect(photo_item.short_author).to eq("erinmay311")
 		    end
 		    it "returns the author_id" do
 		      	expect(photo_item.author_id).to match(/134073905@N04/)
