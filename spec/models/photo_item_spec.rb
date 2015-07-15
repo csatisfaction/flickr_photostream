@@ -47,7 +47,7 @@ RSpec.describe PhotoItem, type: :model do
 		      	expect(photo_item.link).to match("https://www.flickr.com/photos/134073905@N04/19069651544/")
 		    end
 		    it "returns the media" do
-		      	#expect(photo_item.media).to match('{"m":"https://farm1.staticflickr.com/303/19069651544_530c002fcb_m.jpg"}')
+		      	expect(photo_item.media["m"]).to match("https://farm1.staticflickr.com/303/19069651544_530c002fcb_m.jpg")
 		    end
 		    it "returns the date_taken" do
 		      	expect(photo_item.date_taken).to match(/2015-07-14T09:05:43-08:00/)
