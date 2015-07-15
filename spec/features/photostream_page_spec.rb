@@ -9,7 +9,7 @@ feature 'Photostream Page' do
 	end
 	it 'has the first image"' do
 	  	visit('/')
-    	expect(page).to have_xpath("//img[contains(@src,'https://farm1.staticflickr.com/303/19069651544_530c002fcb_m.jpg')]")
+    	expect(page).to have_xpath("//img[contains(@src,'https://*.staticflickr.com/*.jpg')]")
 	end
   end
 end
