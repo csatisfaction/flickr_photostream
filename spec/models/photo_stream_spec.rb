@@ -63,9 +63,9 @@ RSpec.describe PhotoStream, type: :model do
 			it "returns the title" do
 		      	expect(photo_stream.title).to match(/Uploads from everyone/)
 		    end
-		   	#it "returns the link" do
-		     # 	expect(photo_stream.title).to match("https://www.flickr.com/photos/")
-		    #end
+		   	it "has the right number of items" do
+		      	expect(photo_stream.items.count).to eq(2)
+		    end
 		end
 	end
 end
