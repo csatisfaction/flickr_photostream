@@ -10,7 +10,9 @@ RSpec.describe PhotoItem, type: :model do
 
   	describe "public class methods" do
 		context "responds to its methods" do
-
+			it "load_photo_item" do
+				expect(PhotoItem).to respond_to(:load_photo_item)
+			end
 		end 
 	end
 	describe "public instance methods" do
