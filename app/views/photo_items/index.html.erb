@@ -5,7 +5,7 @@
 	<div class="item">
 		
 		<%=image_tag(item.media["m"]) %>
-		<%=link_to(item.title)%>
+		<%=link_to item.title, item.link%>
 	</div>
 <% end %>
 </div>

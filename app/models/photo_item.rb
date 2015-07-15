@@ -3,8 +3,8 @@ class PhotoItem
 
 	attr_accessor :title, :link, :media, :date_taken, :description, :published, :author, :author_id, :tags
 
-	def self.load_photo_item(json_photo_item)
-		photo_item_data = json_photo_item
+	def self.load_photo_item(photo_item_data)
+
 		#photo_item_data = JSON.parse(json_photo_item)
 
 		photo_item = self.new

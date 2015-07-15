@@ -3,8 +3,14 @@ class PhotoStream
 
 	attr_accessor :title, :items
 
-	def self.load_photo_stream(json_photo_stream)
-		photo_stream_data = JSON.parse(json_photo_stream)
+	def self.get_photo_stream
+		response = HTTParty.get('https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1')
+		photo_stream_data = JSON.parse(response.body)
+		return photo_stream_data
+	end
+
+	def self.load_photo_stream(photo_stream_data)
+		
 
 		photo_stream = self.new
 		photo_stream.title = photo_stream_data["title"]

@@ -13,6 +13,9 @@ RSpec.describe PhotoStream, type: :model do
 			it "load_photo_stream" do
 				expect(PhotoStream).to respond_to(:load_photo_stream)
 			end
+			it "get_photo_stream" do
+				expect(PhotoStream).to respond_to(:get_photo_stream)
+			end
 		end 
 	end
 	describe "public instance methods" do
@@ -58,7 +61,7 @@ RSpec.describe PhotoStream, type: :model do
 		      #body = JSON.parse(feed)
 		      #stream_title = body.map { |m| m["title"] }
 
-			let(:photo_stream) { PhotoStream.load_photo_stream(feed) }
+			let(:photo_stream) { PhotoStream.load_photo_stream(JSON.parse(feed)) }
 
 			it "returns the title" do
 		      	expect(photo_stream.title).to match(/Uploads from everyone/)

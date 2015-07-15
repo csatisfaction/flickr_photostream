@@ -38,7 +38,7 @@ RSpec.describe PhotoItem, type: :model do
 		      #body = JSON.parse(feed)
 		      #stream_title = body.map { |m| m["title"] }
 
-			let(:photo_item) { PhotoItem.load_photo_item(item) }
+			let(:photo_item) { PhotoItem.load_photo_item(JSON.parse(item)) }
 
 			it "returns the title" do
 		      	expect(photo_item.title).to match(/Tagged!/)
