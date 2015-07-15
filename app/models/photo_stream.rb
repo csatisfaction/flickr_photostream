@@ -8,7 +8,8 @@ class PhotoStream
 
 		photo_stream = self.new
 		photo_stream.title = photo_stream_data["title"]
- 		
+
+
  		return photo_stream
 	end
 

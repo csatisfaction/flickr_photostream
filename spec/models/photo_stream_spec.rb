@@ -20,6 +20,9 @@ RSpec.describe PhotoStream, type: :model do
 			it "title" do
 				expect(photo_stream).to respond_to(:title)
 			end
+			it "items" do
+				expect(photo_stream).to respond_to(:items)
+			end
 		end
 		context "responds with the correct data" do
 			feed = %q{{
