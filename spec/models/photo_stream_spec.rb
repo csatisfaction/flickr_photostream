@@ -22,8 +22,7 @@ RSpec.describe PhotoStream, type: :model do
 			end
 		end
 		context "responds with the correct data" do
-			it "returns the title" do
-		      feed = %q{{
+			feed = %q{{
 				"title": "Uploads from everyone",
 				"link": "https://www.flickr.com/photos/",
 				"description": "",
@@ -32,11 +31,16 @@ RSpec.describe PhotoStream, type: :model do
 				"items": []
 				}}
 
-			 	let(:photo_stream) { PhotoStream.load_photo_stream(feed) }
 		      #body = JSON.parse(feed)
 		      #stream_title = body.map { |m| m["title"] }
 
+			let(:photo_stream) { PhotoStream.load_photo_stream(feed) }
+
+			it "returns the title" do
 		      	expect(photo_stream.title).to match(/Uploads from everyone/)
+		    end
+		   	it "returns the link" do
+		      	expect(photo_stream.title).to match("https://www.flickr.com/photos/")
 		    end
 		end
 	end
