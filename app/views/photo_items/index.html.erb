@@ -13,7 +13,9 @@
 						<div class="inner-item">
 							<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
 							<div class="description_text"><%= render inline: item.description_text%></div>
-							<div class="tags">tags: <%= render inline: item.tags_with_links%></div>
+							<% unless item.tags_with_links.blank? %>
+								<div class="tags">tags: <%= render inline: item.tags_with_links%></div>
+							<% end %>
 						
 						</div>
 					</div>
