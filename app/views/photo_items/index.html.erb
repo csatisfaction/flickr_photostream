@@ -1,14 +1,13 @@
 <h1>Flickr Photo Stream</h1>
 <% unless @photostream.blank? then %>
 	<h2><%=@photostream.title%></h2>
-	<div class="items">
+	<div class="items grid">
 	<% @items.each do |item| %>
-		<div class="item">
+		<div class="item grid-item">
 			
-			<%=image_tag(item.media["m"]) %>
-			<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
-			<div class="description"><%= render inline: item.description%></div>
+
 			<div class="image_with_link"><%= render inline: item.image_with_link%></div>
+			<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
 			<div class="description_text"><%= render inline: item.description_text%></div>
 			
 
