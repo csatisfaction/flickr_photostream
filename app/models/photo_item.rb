@@ -1,7 +1,7 @@
 class PhotoItem 
 	include ActiveModel::Model
 
-	attr_accessor :title, :link, :media, :date_taken, :description, :published, :author, :short_author, :author_id, :author_link, :tags, :image_with_link, :description_text
+	attr_accessor :title, :link, :media, :date_taken, :description, :published, :author, :short_author, :author_id, :author_link, :tags, :image_with_link, :description_text, :tag_string
 
 	def self.load_photo_item(photo_item_data)
 
@@ -20,8 +20,11 @@ class PhotoItem
 		split_string = photo_item.description.split(/<p>/)
 		split_string_no_p = split_string.each.collect { |p| p.gsub(/<\/p>/,'') }
 
-			photo_item.image_with_link = split_string_no_p[2] ? split_string_no_p[2] : "<p></p>"
-			photo_item.description_text = split_string_no_p[3] ? split_string_no_p[3] : "<p></p>"
+		photo_item.image_with_link = split_string_no_p[2] ? split_string_no_p[2] : "<p></p>"
+		photo_item.description_text = split_string_no_p[3] ? split_string_no_p[3] : "<p></p>"
+
+		tag_array = photo_item.tags.split(/ /)
+		photo_item.tag_string = tag_array.join(', ')
 
 
 

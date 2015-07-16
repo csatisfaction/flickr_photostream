@@ -50,6 +50,9 @@ RSpec.describe PhotoItem, type: :model do
 			it "tags" do
 				expect(photo_item).to respond_to(:tags)
 			end
+			it "tag_string" do
+				expect(photo_item).to respond_to(:tag_string)
+			end
 
 
 		end
@@ -104,6 +107,9 @@ RSpec.describe PhotoItem, type: :model do
 		    end
 		    it "returns the tags" do
 		      	expect(photo_item.tags).to match(/mytag1 mytag2/)
+		    end
+		    it "returns the tags in a comma delimited string" do
+		      	expect(photo_item.tag_string).to match(/mytag1, mytag2/)
 		    end
 		end
 
