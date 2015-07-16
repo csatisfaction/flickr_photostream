@@ -1,18 +1,20 @@
 <h1>Flickr Photo Stream</h1>
 <% unless @photostream.blank? then %>
 	<h2><%=@photostream.title%></h2>
-	<div class="items grid">
-	<% @items.each do |item| %>
-		<div class="item grid-item">
-			
+	<div class="items ">
+		<div class= "grid">
+		<% @items.each do |item| %>
+			<div class="item grid-item">
+				
 
-			<div class="image_with_link"><%= render inline: item.image_with_link%></div>
-			<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
-			<div class="description_text"><%= render inline: item.description_text%></div>
-			
+				<div class="image_with_link"><%= render inline: item.image_with_link%></div>
+				<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
+				<div class="description_text"><%= render inline: item.description_text%></div>
+				
 
+			</div>
+		<% end %>
 		</div>
-	<% end %>
 	</div>
 <% else %>
 	<h2>Unable to load photostream</h2>
