@@ -1,12 +1,12 @@
 <div class="main">
-	<div class="centered">
+	<div class="centered wrapper">
 		<h1>Flickr Photo Stream</h1>
 		<% unless @photostream.blank? then %>
 			<h2><%=@photostream.title%></h2>
 
-				<div class="grid">
+				<div class="grid masonry">
 				<% @items.each do |item| %>
-					<div class="grid-item">
+					<div class="grid-item item">
 						
 
 						<div class="image_with_link"><%= render inline: item.image_with_link%></div>

@@ -22,8 +22,9 @@ class PhotoItem
 
 
 
-		photo_item.image_with_link = split_string_no_p[2] ? split_string_no_p[2].gsub(/_m.jpg/,'.jpg') : "<p></p>" # should use the api to pull larger images
-		#photo_item.image_with_link = "<a href=\"#{photo_item.link}\"><img width=\"300\" height=\"300\" alt=\"#{photo_item.title}\" src=\"#{photo_item.media['m'].gsub(/_m.jpg/,'.jpg')}\"></a>"  # should use the api to pull larger images
+		#photo_item.image_with_link = split_string_no_p[2] ? split_string_no_p[2].gsub(/_m.jpg/,'.jpg') : "<p></p>" # should use the api to pull larger images
+
+		photo_item.image_with_link = "<a href=\"#{photo_item.link}\"><img width=\"300\" alt=\"#{photo_item.title}\" src=\"#{photo_item.media['m'].gsub(/_m.jpg/,'.jpg')}\"></a>"  # should use the api to pull larger images
 		photo_item.description_text = split_string_no_p[3] ? split_string_no_p[3] : "<p></p>"
 
 		tag_array = photo_item.tags.split(/ /)

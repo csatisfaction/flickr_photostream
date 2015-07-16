@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
 
-	$('.grid').masonry({
+	/*$('.grid').masonry({
 	  // options
 	  itemSelector: '.grid-item',
 	  //columnWidth: 300
-	});
+	});*/
 
 
 });
