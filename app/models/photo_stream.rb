@@ -5,8 +5,16 @@ class PhotoStream
 
 	def self.get_photo_stream
 		response = HTTParty.get('https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1')
-		photo_stream_data = JSON.parse(response.body)
-		return photo_stream_data
+		if response.code == 200 then
+			photo_stream_data = JSON.parse(response.body)
+			return photo_stream_data
+		else
+			return "fail"
+		end
+
+		rescue
+
+			return "fail"
 	end
 
 	def self.load_photo_stream(photo_stream_data)
