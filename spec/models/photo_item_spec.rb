@@ -38,11 +38,14 @@ RSpec.describe PhotoItem, type: :model do
 			it "author" do
 				expect(photo_item).to respond_to(:author)
 			end
+			it "short_author" do
+				expect(photo_item).to respond_to(:short_author)
+			end
 			it "author_id" do
 				expect(photo_item).to respond_to(:author_id)
 			end
-			it "short_author" do
-				expect(photo_item).to respond_to(:short_author)
+			it "author_link" do
+				expect(photo_item).to respond_to(:author_link)
 			end
 			it "tags" do
 				expect(photo_item).to respond_to(:tags)
@@ -95,6 +98,9 @@ RSpec.describe PhotoItem, type: :model do
 		    end
 		    it "returns the author_id" do
 		      	expect(photo_item.author_id).to match(/134073905@N04/)
+		    end
+		    it "returns the author_link" do
+		      	expect(photo_item.author_link).to match("https://www.flickr.com/photos/134073905@N04/")
 		    end
 		    it "returns the tags" do
 		      	expect(photo_item.tags).to match(/mytag1 mytag2/)

@@ -6,7 +6,12 @@
 		<div class="item">
 			
 			<%=image_tag(item.media["m"]) %>
-			<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_id %></div>
+			<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
+			<div class="description"><%= render inline: item.description%></div>
+			<div class="image_with_link"><%= render inline: item.image_with_link%></div>
+			<div class="description_text"><%= render inline: item.description_text%></div>
+			
+
 		</div>
 	<% end %>
 	</div>
