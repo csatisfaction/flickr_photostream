@@ -7,12 +7,13 @@
 				<div class="grid">
 				<% @items.each do |item| %>
 					<div class="grid-item">
-						<div class="inner-item">
+						
 
-							<div class="image_with_link"><%= render inline: item.image_with_link%></div>
+						<div class="image_with_link"><%= render inline: item.image_with_link%></div>
+						<div class="inner-item">
 							<div class="byline"><%=link_to item.title, item.link%> by <%=link_to item.short_author, item.author_link %></div>
 							<div class="description_text"><%= render inline: item.description_text%></div>
-							<div class="tags">tags: <%= item.tag_string%></div>
+							<div class="tags">tags: <%= render inline: item.tags_with_links%></div>
 						
 						</div>
 					</div>

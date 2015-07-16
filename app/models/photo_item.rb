@@ -1,7 +1,7 @@
 class PhotoItem 
 	include ActiveModel::Model
 
-	attr_accessor :title, :link, :media, :date_taken, :description, :published, :author, :short_author, :author_id, :author_link, :tags, :image_with_link, :description_text, :tag_string
+	attr_accessor :title, :link, :media, :date_taken, :description, :published, :author, :short_author, :author_id, :author_link, :tags, :image_with_link, :description_text, :tag_string, :tags_with_links
 
 	def self.load_photo_item(photo_item_data)
 
@@ -20,13 +20,16 @@ class PhotoItem
 		split_string = photo_item.description.split(/<p>/)
 		split_string_no_p = split_string.each.collect { |p| p.gsub(/<\/p>/,'') }
 
-		photo_item.image_with_link = split_string_no_p[2] ? split_string_no_p[2] : "<p></p>"
+		
+
+		photo_item.image_with_link = split_string_no_p[2] ? split_string_no_p[2].gsub(/_m.jpg/,'.jpg') : "<p></p>"
 		photo_item.description_text = split_string_no_p[3] ? split_string_no_p[3] : "<p></p>"
 
 		tag_array = photo_item.tags.split(/ /)
 		photo_item.tag_string = tag_array.join(', ')
 
-
+		tag_with_links_array = tag_array.each.collect { |t| "<a href=\"https://www.flickr.com/search/?q=#{t}\">#{t}</a>" }
+		photo_item.tags_with_links = tag_with_links_array.join(', ')
 
  		return photo_item
 	end

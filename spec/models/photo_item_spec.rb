@@ -53,6 +53,9 @@ RSpec.describe PhotoItem, type: :model do
 			it "tag_string" do
 				expect(photo_item).to respond_to(:tag_string)
 			end
+			it "tags_with_links" do
+				expect(photo_item).to respond_to(:tags_with_links)
+			end
 
 
 		end
@@ -110,6 +113,9 @@ RSpec.describe PhotoItem, type: :model do
 		    end
 		    it "returns the tags in a comma delimited string" do
 		      	expect(photo_item.tag_string).to match(/mytag1, mytag2/)
+		    end
+		   	it "returns the tags as html with links" do
+		      	expect(photo_item.tags_with_links).to match('<a href="https://www.flickr.com/search/?q=mytag1">mytag1</a>, <a href="https://www.flickr.com/search/?q=mytag2">mytag2</a>')
 		    end
 		end
 
